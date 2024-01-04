@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
             notes: notes
         };
         console.log('meditationEntryData ', meditationEntryData)
-        const endpoint = 'http://localhost:7008/lila//create-meditation-entry';
+        const endpoint = 'https://lila-backend-8abfdeda606c.herokuapp.com/lila/create-meditation-entry';
 
         // Make the fetch POST request
         fetch(endpoint, {

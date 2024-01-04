@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to fetch and display meditation entries by date
     const fetchAndDisplayMeditationEntries = async () => {
         try {
-            // Get today's date in the format "YYYY-MM-DD"
-            const today = new Date().toISOString().split('T')[0];
-            
-            // Fetch meditation entries for today
-            const response = await fetch(`http://localhost:7008/lila/meditation-entries?date=${today}`);
+            const response = await fetch('https://lila-backend-8abfdeda606c.herokuapp.com/lila/meditation-entries', {
+                headers: {
+                    'Cache-Control': 'no-cache',
+                },
+            });
 
             if (response.ok) {
                 const meditationEntries = await response.json();
@@ -27,33 +27,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         entries.forEach(entry => {
             const entryElement = document.createElement('div');
-            entryElement.innerHTML = `<p class="entry" data-id="${entry._id}" data-date="${entry.date}">${entry.date} - ${entry.duration} - ${entry.notes}</p>`;
+            entryElement.innerHTML = `<p class="entry" data-id="${entry._id}">${entry.date} - ${entry.duration} - ${entry.notes}</p>`;
 
-            // Add an event listener to edit the entry when clicked
-            entryElement.addEventListener('click', () => editMeditationEntry(entry.date));
+            // Add an event listener to navigate to the update page with the entry's data
+            entryElement.addEventListener('click', () => navigateToUpdatePage(entry));
 
             meditationEntriesContainer.appendChild(entryElement);
         });
     };
 
-    // Function to edit a meditation entry
-    const editMeditationEntry = (date) => {
-        // Fetch the specific data for the clicked date
-        fetch(`http://localhost:7008/lila/meditation-entries?date=${date}`)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error(`Error fetching meditation entry for date ${date}: ${response.status}`);
-                }
-            })
-            .then(data => {
-                // Navigate to the updateMeditation.html page with the fetched data
-                window.location.href = `/views/updateMeditation/updateMeditation.html?id=${data._id}&date=${data.date}&duration=${data.duration}&notes=${data.notes}`;
-            })
-            .catch(error => {
-                console.error(error);
-            });
+    // Function to navigate to the update page with the entry's data
+    const navigateToUpdatePage = (entry) => {
+        const { _id, date, duration, notes } = entry;
+        window.location.href = `/views/updateMeditation/updateMeditation.html?id=${_id}&date=${date}&duration=${duration}&notes=${notes}`;
     };
 
     // Event listener for creating a new entry
