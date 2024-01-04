@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update Meditation Entry</title>
+    <link rel="stylesheet" href="updateMeditation.css">
+</head>
+
+<body>
+    <h1>Update Meditation Entry</h1>
+
+    <form id="updateMeditationForm">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="duration">Duration:</label>
+        <input type="text" id="duration" name="duration" placeholder="E.g., 10 minutes" required>
+
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes" placeholder="Enter your notes here" required></textarea>
+
+        <button type="submit" class="submitButton">Update Entry</button>
+    </form>
+
+    <a href="../meditationEntries/meditationEntries.html" class="backButton">Back to Meditation Entries</a>
+
+    <button id="homeButton">Home</button>
+
+    <script src="updateMeditation.js"></script>
+</body>
+
+</html>

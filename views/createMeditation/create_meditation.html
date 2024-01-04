@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Meditation Entry</title>
+    <link rel="stylesheet" href="create_meditation.css">
+</head>
+
+<body>
+    <h1>Create a New Meditation Entry</h1>
+
+    <form id="meditationForm">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="duration">Duration:</label>
+        <input type="text" id="duration" name="duration" placeholder="E.g., 10 minutes" required>
+
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes" placeholder="Enter your notes here" required></textarea>
+
+        <button type="submit" class="submitButton">Submit</button>
+    </form>
+
+    <a href="../meditationEntries/meditationEntries.html" class="backButton">Back to Meditation Entries</a>
+
+    <button id="homeButton">Home</button>
+
+    <script src="create_meditation.js"></script>
+</body>
+
+</html>
