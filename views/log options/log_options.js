@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to navigate to the gratitude entries page
     function navigateToGratitude() {
-        window.location.href = 'gratitudeEntries.html';
+        window.location.href = '/views/gratitudeEntries/gratitudeEntries.html';
     }
 
     // Function to navigate to the meditation entries page

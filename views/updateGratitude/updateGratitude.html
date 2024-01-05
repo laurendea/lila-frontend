@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update Gratitude Entry</title>
+    <link rel="stylesheet" href="updateGratitude.css">
+</head>
+
+<body>
+    <h1>Update Gratitude Entry</h1>
+
+    <form id="updateGratitudeForm">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="duration">Entry:</label>
+        <input type="text" id="entry" name="entry" placeholder="E.g., im thankful for.." required>
+
+
+        <button type="submit" class="submitButton">Update Entry</button>
+    </form>
+
+    <a href="views/gratitudeEntries/gratitudeEntries.html" class="backButton">Back to Gratitude Entries</a>
+
+    <button id="homeButton">Home</button>
+
+    <button id="deleteButton" class="deleteButton">Delete Entry</button>
+
+    <script src="updateGratitude.js"></script>
+</body>
+
+</html>

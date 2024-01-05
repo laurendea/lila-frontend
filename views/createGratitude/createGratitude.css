@@ -1,0 +1,45 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #3498db;
+}
+
+#gratitudeForm  {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button.submitButton {
+    padding: 10px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+button.submitButton:hover {
+    background-color: #2980b9;
+}
+
+a.backButton {
+    display: block;
+    margin-top: 10px;
+    color: #3498db;
+    text-decoration: none;
+}
