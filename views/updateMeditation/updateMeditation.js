@@ -1,62 +1,90 @@
-async function fetchMeditationEntries() {
-    try {
-        const response = await fetch('http://localhost:7008/lila/meditation-entries');
-        if (response.ok) {
-            const entries = await response.json();
-            return entries;
-        } else {
-            console.error('Error fetching meditation entries:', response.status);
-            return [];
-        }
-    } catch (error) {
-        console.error('Error fetching meditation entries:', error);
-        return [];
-    }
-}
+document.addEventListener('DOMContentLoaded', function () {
+    const meditationForm = document.getElementById('updateMeditationForm');
 
-document.addEventListener('DOMContentLoaded', async function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const meditationDate = urlParams.get('date'); // Change 'id' to 'date'
+    if (meditationForm) {
+        // Retrieve URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const meditationDate = urlParams.get('date');
+        const duration = urlParams.get('duration');
+        const notes = urlParams.get('notes');
 
-    const dateInput = document.getElementById('date');
-    const durationInput = document.getElementById('duration');
-    const notesInput = document.getElementById('notes');
+        // Display values in the form fields
+        displayMeditationData(meditationDate, duration, notes);
 
-    console.log('Meditation Date:', meditationDate);
-
-    // Fetch and display meditation data
-    const meditationEntries = await fetchMeditationEntries();
-    const selectedMeditation = meditationEntries.find(entry => entry.date === meditationDate);
-    displayMeditationData(selectedMeditation);
-
-    const form = document.getElementById('meditationForm');
-    if (form) {
-        form.addEventListener('submit', async function (event) {
+        // Form submission event listener
+        meditationForm.addEventListener('submit', async function (event) {
             event.preventDefault();
+
             const updatedDate = document.getElementById('date').value;
             const updatedDuration = document.getElementById('duration').value;
             const updatedNotes = document.getElementById('notes').value;
 
             console.log('Submitting form with updated values:', updatedDate, updatedDuration, updatedNotes);
-            
-            // Include newDuration and newNotes in the updateMeditationEntry function
-            await updateMeditationEntry(meditationDate, updatedDate, updatedDuration, updatedNotes);
 
-            // Clear the form fields
-            if (dateInput) {
-                dateInput.value = '';
-            }
+            try {
+                const response = await fetch(`https://lila-backend-8abfdeda606c.herokuapp.com/lila/update-meditation-entry/${updatedDate}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        newDate: updatedDate,
+                        duration: updatedDuration,
+                        notes: updatedNotes,
+                    }),
+                });
 
-            if (durationInput) {
-                durationInput.value = '';
-            }
+                if (response.ok) {
+                    const updatedEntry = await response.json();
+                    console.log('Updated Entry:', updatedEntry);
+                    console.log('Meditation entry updated successfully!');
+                    alert('Meditation entry updated successfully!');
 
-            if (notesInput) {
-                notesInput.value = '';
+                    // Redirect to the meditation entries page using an absolute path
+                    window.location.href = '../meditationEntries/meditationEntries.html';
+                } else {
+                    const errorText = await response.text();
+                    console.error('Error updating meditation entry:', response.status, errorText);
+                    alert('Error updating meditation entry. Check the console for details.');
+                }
+            } catch (error) {
+                console.error('Error updating meditation entry:', error);
+                alert('Error updating meditation entry. Check the console for details.');
             }
         });
+
+        // Delete button event listener
+        const deleteButton = document.getElementById('deleteButton');
+        if (deleteButton) {
+            deleteButton.addEventListener('click', async function () {
+                try {
+                    const response = await fetch(`https://lila-backend-8abfdeda606c.herokuapp.com/lila/delete-meditation-entry/${meditationDate}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    });
+
+                    if (response.ok) {
+                        console.log('Meditation entry deleted successfully!');
+                        alert('Meditation entry deleted successfully!');
+
+                        // Redirect to the meditation entries page
+                        window.location.href = '../meditationEntries/meditationEntries.html';
+                    } else {
+                        const errorText = await response.text();
+                        console.error('Error deleting meditation entry:', response.status, errorText);
+                        alert('Error deleting meditation entry. Check the console for details.');
+                    }
+                } catch (error) {
+                    console.error('Error deleting meditation entry:', error);
+                    alert('Error deleting meditation entry. Check the console for details.');
+                }
+            });
+        }
     }
 
+    // Your existing code for backButton, homeButton, etc.
     const backButton = document.querySelector('.backButton');
     if (backButton) {
         backButton.addEventListener('click', function () {
@@ -74,76 +102,31 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 });
 
-async function updateMeditationEntry(date, newDate, duration, notes) {
-    try {
-      const response = await fetch(`http://localhost:7008/lila/update-meditation-entry/${date}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          newDate,
-          duration,
-          notes,
-        }),
-      });
-  
-      if (response.ok) {
-        const updatedEntry = await response.json();
-        console.log('Updated Entry:', updatedEntry);
-        console.log('Meditation entry updated successfully!');
-        alert('Meditation entry updated successfully!');
-      } else {
-        const errorText = await response.text();
-        console.error('Error updating meditation entry:', response.status, errorText);
-        alert('Error updating meditation entry. Check the console for details.');
-      }
-    } catch (error) {
-      console.error('Error updating meditation entry:', error);
-      alert('Error updating meditation entry. Check the console for details.');
-    }
-}
-  
-
-  
-
-function displayMeditationData(entry) {
+function displayMeditationData(date, duration, notes) {
     const dateInput = document.getElementById('date');
     const durationInput = document.getElementById('duration');
     const notesInput = document.getElementById('notes');
 
-    if (entry && dateInput) {
-        dateInput.value = entry.date ? formatDate(entry.date) : '';
+    if (dateInput) {
+        dateInput.value = date || '';
     }
 
-    if (entry && durationInput) {
-        durationInput.value = entry.duration || '';
+    if (durationInput) {
+        durationInput.value = duration || '';
     }
 
-    if (entry && notesInput) {
-        notesInput.value = entry.notes || '';
+    if (notesInput) {
+        notesInput.value = notes || '';
     }
 }
 
-function formatDate(dateString) {
-    // Convert the input date string to a Date object
-    const inputDate = new Date(dateString);
 
-    // Ensure the date is valid
-    if (isNaN(inputDate.getTime())) {
-        throw new Error('Invalid date');
-    }
 
-    // Format the date as "yyyy-MM-dd"
-    const formattedDate = inputDate.toISOString().split('T')[0];
-    return formattedDate;
-}
+  
 
-// Event listener for home button click
-document.getElementById('homeButton').addEventListener('click', function () {
-    console.log('Home button clicked');
-    window.location.href = '/index.html';
-});
+
+
+
 
 
 
