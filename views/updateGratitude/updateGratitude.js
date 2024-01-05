@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (homeButton) {
         homeButton.addEventListener('click', function () {
             console.log('Home button clicked');
-            window.location.href = '/index.html';
+            window.location.href = '/views/log options/log_options.html';
         });
     }
 });

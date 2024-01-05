@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
             duration: duration,
             notes: notes
         };
-        console.log('meditationEntryData ', meditationEntryData)
+
+        console.log('meditationEntryData ', meditationEntryData);
+
         const endpoint = 'https://lila-backend-8abfdeda606c.herokuapp.com/lila/create-meditation-entry';
 
         // Make the fetch POST request
@@ -24,19 +26,22 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             body: JSON.stringify(meditationEntryData),
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Success:', data);
-                // You can redirect or perform other actions upon successful submission
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success:', data);
+            
+            // Redirect to the meditation entries page upon successful submission
+            window.location.href = '/views/meditationEntries/meditationEntries.html';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle error scenarios if needed
+        });
     });
 });
 
@@ -45,10 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // Function to navigate to the home page
     function navigateToHome() {
-      window.location.href = '/index.html';
+      window.location.href = '/views/log options/log_options.html';
     }
   
     // Event listener for home button click
     document.getElementById('homeButton').addEventListener('click', navigateToHome);
-  });
+});
+
 

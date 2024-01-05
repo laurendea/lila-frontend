@@ -10,17 +10,20 @@
 <body>
     <h1>Create a New Gratitude Entry</h1>
 
-    <form id="gratitudeForm">
+    <form id="gratitudeForm" enctype="multipart/form-data">
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required>
 
         <label for="entry">Entry:</label>
         <input type="text" id="entry" name="entry" placeholder="E.g., I'm thankful for.." required>
 
+        <label for="photo">Photo:</label>
+        <input type="file" id="photo" name="photo">
+
         <button type="submit" class="submitButton">Submit</button>
     </form>
 
-    <a href="../gratitudeEntries/gratitudeEntries.html" class="backButton">Back to Meditation Entries</a>
+    <a href="../gratitudeEntries/gratitudeEntries.html" class="backButton">Back to Gratitude Entries</a>
 
     <button id="homeButton">Home</button>
 
@@ -28,4 +31,5 @@
 </body>
 
 </html>
+
 

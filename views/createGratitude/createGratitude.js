@@ -6,31 +6,22 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         const date = document.getElementById('date').value;
         const entry = document.getElementById('entry').value;
+        const photoInput = document.getElementById('photo');
+        const photoFile = photoInput.files[0];
 
-         console.log(date)
-         console.log(entry)
+        const gratitudeData = new FormData();
+        gratitudeData.append('date', date);
+        gratitudeData.append('entry', entry);
+        gratitudeData.append('photo', photoFile);
 
-        // const formData = new FormData();
-        // formData.append('date', date);
-        // formData.append('entry', entry);
-
-        // console.log('FormData:', formData);
-
-
-        const  gratitudeForm= {
-            date: date,
-            entry: entry
-        };
+        console.log('Gratitude Data:', gratitudeData);
 
         const endpoint = 'https://lila-backend-8abfdeda606c.herokuapp.com/lila/create-gratitude-entry';
 
         try {
             const response = await fetch(endpoint, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(gratitudeForm),
+                body: gratitudeData,
             });
 
             if (!response.ok) {
@@ -39,8 +30,12 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             const data = await response.json();
             console.log('Success:', data);
+
+            // Redirect to the gratitude entries page upon successful submission
+            window.location.href = '/views/gratitudeEntries/gratitudeEntries.html';
         } catch (error) {
             console.error('Error:', error);
+            // Handle error scenarios if needed
         }
     });
 });
@@ -50,12 +45,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to navigate to the home page
     function navigateToHome() {
-        window.location.href = '/index.html';
+        window.location.href = '/views/log options/log_options.html';
     }
 
     // Event listener for home button click
     document.getElementById('homeButton').addEventListener('click', navigateToHome);
 });
+
+
+
+
+
+
 
 
 
