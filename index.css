@@ -132,21 +132,22 @@ img {
     .glowing-sphere.sphere2 {
         width: 5%;
         height: 2%;
-        margin-top: 1vh;
-        margin-left: -8vh;
+        margin-top: -1vh;
+        margin-left: -11vh;
     }
 
     .glowing-sphere.sphere3 {
         width: 5%;
         height: 2%;
-        margin-top: 13vh;
-        margin-left: -8vh;
+        margin-top: 10vh;
+        margin-left: -11vh;
     }
 
     .overlay-text {
         font-size: 12px;
-        margin-top: 12vh;
-        margin-left: 1vh;
+        margin-top: 4vh;
+        margin-left: -11vh;
+    
     }
 }
 
