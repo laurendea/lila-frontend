@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         entries.forEach(gratitudeEntry => { // Change the parameter name to 'gratitudeEntry'
             const entryElement = document.createElement('div');
-            entryElement.innerHTML = `<p class="entry" data-id="${gratitudeEntry._id}">${gratitudeEntry.date} - ${gratitudeEntry.entry} - </p>`;
+            entryElement.innerHTML = `<p class="entry" data-id="${gratitudeEntry._id}">${gratitudeEntry.date} - ${gratitudeEntry.entry} </p>`;
 
             // Add an event listener to navigate to the update page with the entry's data
             entryElement.addEventListener('click', () => navigateToUpdatePage(gratitudeEntry));
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to navigate to the home page
     function navigateToHome() {
-        window.location.href = '/index.html';
+        window.location.href = '/views/log options/log_options.html';
     }
 
     // Event listener for home button click

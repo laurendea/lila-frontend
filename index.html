@@ -4,20 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <script src="views/log options/log_options.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@300&family=Cormorant+Garamond&family=Poiret+One&display=swap" rel="stylesheet">
     <title>lila</title>
 </head>
 <body>
-   
-    <header>
-        <h1>lila</h1>
-    </header>
+    <div class="background-video">
+        <video autoplay loop muted id="backgroundVideo">
+            <source src="photosVideos/pexels-maksim-romashkin-12717006 (Original) (1).mp4" type="video/mp4">
+        </video>
+        <div class="content">
+        
+            <!-- clickable image button  -->
+            <a href="views/log options/log_options.html">
+                <img src="photosVideos/whitelotus2.png" alt="Log Options Image">
+            </a>
 
-    <main>
-       
-        <!-- Button that links to the log-options page -->
-        <button id="logOptionsButton">Go to Log Options</button>
-    </main>
+            <div class="glowing-sphere"></div>
+            <div class="glowing-sphere sphere2"></div>
+            <div class="glowing-sphere sphere3"></div>
+
+            <div class="overlay-text">
+                <h1>lila</h1>
+            </div>
+
+        </div>
+        </div>
+    </div>
 
     <footer>
         <!-- Footer content goes here -->
@@ -26,3 +40,6 @@
     <script src="index.js"></script>
 </body>
 </html>
+
+
+

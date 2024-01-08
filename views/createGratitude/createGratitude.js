@@ -10,12 +10,6 @@ document.addEventListener('DOMContentLoaded', async function () {
          console.log(date)
          console.log(entry)
 
-        // const formData = new FormData();
-        // formData.append('date', date);
-        // formData.append('entry', entry);
-
-        // console.log('FormData:', formData);
-
 
         const  gratitudeForm= {
             date: date,
@@ -50,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to navigate to the home page
     function navigateToHome() {
-        window.location.href = '/index.html';
+        window.location.href = '/views/log options/log_options.html';
     }
 
     // Event listener for home button click

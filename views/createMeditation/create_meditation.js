@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // Function to navigate to the home page
     function navigateToHome() {
-      window.location.href = '/index.html';
+      window.location.href = '/views/log options/log_options.html';
     }
   
     // Event listener for home button click
