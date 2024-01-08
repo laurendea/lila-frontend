@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             duration: duration,
             notes: notes
         };
-        console.log('meditationEntryData ', meditationEntryData)
+
         const endpoint = 'https://lila-backend-8abfdeda606c.herokuapp.com/lila/create-meditation-entry';
 
         // Make the fetch POST request
@@ -32,23 +32,20 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(data => {
                 console.log('Success:', data);
-                // You can redirect or perform other actions upon successful submission
+
+                // Redirect to the meditation entries page using an absolute path
+                window.location.href = '../meditationEntries/meditationEntries.html';
             })
             .catch(error => {
                 console.error('Error:', error);
             });
     });
+
+    // Event listener for home button click
+    document.getElementById('homeButton').addEventListener('click', function () {
+        // Function to navigate to the home page
+        window.location.href = '/views/log options/log_options.html';
+    });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // JavaScript to handle button clicks
-  
-    // Function to navigate to the home page
-    function navigateToHome() {
-      window.location.href = '/views/log options/log_options.html';
-    }
-  
-    // Event listener for home button click
-    document.getElementById('homeButton').addEventListener('click', navigateToHome);
-  });
 

@@ -35,18 +35,18 @@ document.addEventListener('DOMContentLoaded', function () {
                     const updatedEntry = await response.json();
                     console.log('Updated Entry:', updatedEntry);
                     console.log('Gratitude entry updated successfully!');
-                    alert('Gratitude entry updated successfully!');
+                    
 
                     // Redirect to the gratitude entries page using an absolute path
                     window.location.href = '../gratitudeEntries/gratitudeEntries.html';
                 } else {
                     const errorText = await response.text();
                     console.error('Error updating gratitude entry:', response.status, errorText);
-                    alert('Error updating gratitude entry. Check the console for details.');
+                   
                 }
             } catch (error) {
                 console.error('Error updating gratitude entry:', error);
-                alert('Error updating gratitude entry. Check the console for details.');
+                
             }
         });
 
@@ -64,18 +64,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     if (response.ok) {
                         console.log('Gratitude entry deleted successfully!');
-                        alert('Gratitude entry deleted successfully!');
+                        
 
                         // Redirect to the gratitude entries page
                         window.location.href = '../gratitudeEntries/gratitudeEntries.html';
                     } else {
                         const errorText = await response.text();
                         console.error('Error deleting gratitude entry:', response.status, errorText);
-                        alert('Error deleting gratitude entry. Check the console for details.');
+                        
                     }
                 } catch (error) {
                     console.error('Error deleting gratitude entry:', error);
-                    alert('Error deleting gratitude entry. Check the console for details.');
+                    
                 }
             });
         }

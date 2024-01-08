@@ -79,6 +79,21 @@ button:hover {
     background-color: #c0392b;
 }
 
+#homeButton {
+    background-color: rgb(245, 238, 245);
+    color: #ff1cbf;
+    position: absolute;
+    bottom: 310px;
+    right: 120px;
+    font-size: 10px;
+    padding: 3px 10px;
+  
+}
+
+#homeButton:hover {
+    background-color: #6c2bc0;
+}
+
 .overlay-text {
     position: absolute;
     top: 59%;

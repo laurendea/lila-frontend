@@ -7,11 +7,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         const date = document.getElementById('date').value;
         const entry = document.getElementById('entry').value;
 
-         console.log(date)
-         console.log(entry)
+        console.log(date);
+        console.log(entry);
 
-
-        const  gratitudeForm= {
+        const gratitudeFormData = {
             date: date,
             entry: entry
         };
@@ -24,22 +23,29 @@ document.addEventListener('DOMContentLoaded', async function () {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(gratitudeForm),
+                body: JSON.stringify(gratitudeFormData),
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
+            if (response.ok) {
+                // Successful submission
+                console.log('Gratitude entry created successfully!');
+                
 
-            const data = await response.json();
-            console.log('Success:', data);
+                // Redirect to the home page
+                window.location.href = '/views/gratitudeEntries/gratitudeEntries.html';
+            } else {
+                // Error handling
+                const errorText = await response.text();
+                console.error('Error creating gratitude entry:', response.status, errorText);
+                
+            }
         } catch (error) {
-            console.error('Error:', error);
+            // Network or other errors
+            console.error('Error creating gratitude entry:', error);
+         
         }
     });
-});
 
-document.addEventListener('DOMContentLoaded', function () {
     // JavaScript to handle button clicks
 
     // Function to navigate to the home page
@@ -50,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Event listener for home button click
     document.getElementById('homeButton').addEventListener('click', navigateToHome);
 });
+
 
 
 

@@ -17,4 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    // JavaScript to handle button clicks
 
+    // Function to navigate to the home page
+    function navigateToHome() {
+        window.location.href = '/index.html';
+    }
+
+    // Event listener for home button click
+    document.getElementById('homeButton').addEventListener('click', navigateToHome);
+});

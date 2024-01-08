@@ -38,18 +38,18 @@ document.addEventListener('DOMContentLoaded', function () {
                     const updatedEntry = await response.json();
                     console.log('Updated Entry:', updatedEntry);
                     console.log('Meditation entry updated successfully!');
-                    alert('Meditation entry updated successfully!');
+                    
 
                     // Redirect to the meditation entries page using an absolute path
                     window.location.href = '../meditationEntries/meditationEntries.html';
                 } else {
                     const errorText = await response.text();
                     console.error('Error updating meditation entry:', response.status, errorText);
-                    alert('Error updating meditation entry. Check the console for details.');
+                    
                 }
             } catch (error) {
                 console.error('Error updating meditation entry:', error);
-                alert('Error updating meditation entry. Check the console for details.');
+                
             }
         });
 
@@ -67,18 +67,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     if (response.ok) {
                         console.log('Meditation entry deleted successfully!');
-                        alert('Meditation entry deleted successfully!');
+                        
 
                         // Redirect to the meditation entries page
                         window.location.href = '../meditationEntries/meditationEntries.html';
                     } else {
                         const errorText = await response.text();
                         console.error('Error deleting meditation entry:', response.status, errorText);
-                        alert('Error deleting meditation entry. Check the console for details.');
+                        
                     }
                 } catch (error) {
                     console.error('Error deleting meditation entry:', error);
-                    alert('Error deleting meditation entry. Check the console for details.');
+                    
                 }
             });
         }
