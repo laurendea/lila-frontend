@@ -40,7 +40,7 @@ body {
     color: #fff;
     font-size: 13px;
     margin-top: 1vh;
-    margin-left: 4vh;
+    margin-left: 1vh;
 }
 
 img {
@@ -61,7 +61,7 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 20%;
+    width: 17%;
     height: 10px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(235, 244, 235, 0.35), rgba(235, 244, 235, 34%));
@@ -85,7 +85,7 @@ img {
     animation: pulse 2s infinite alternate;
     z-index: 1;
     margin-top: -7vh;
-    margin-left: 15vh;
+    margin-left: 14vh;
 }
 
 .glowing-sphere.sphere3 {
@@ -100,8 +100,8 @@ img {
     box-shadow: 0 0 20px #ff1cbf;
     animation: pulse 1s infinite alternate;
     z-index: 1;
-    margin-top: 15vh;
-    margin-left: 15.4vh;
+    margin-top: 7vh;
+    margin-left: 13.9vh;
 }
 
 @keyframes pulse {
