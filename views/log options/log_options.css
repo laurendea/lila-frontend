@@ -7,7 +7,7 @@
     color: black;
     font-size: 13px;
     margin-top: -280px;
-    margin-left: -68vh;
+    margin-left: -81vh;
 }
 
 
@@ -73,7 +73,7 @@ button:hover {
     position: absolute;
     
     bottom: 623px;
-    right: 740px;
+    right: 833px;
 }
 
 #meditationButton:hover {
