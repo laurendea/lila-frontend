@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log('Meditation entry updated successfully!');
                     
 
-                    // Redirect to the meditation entries page using an absolute path
+                    // Redirect to the meditation entries page 
                     window.location.href = '../meditationEntries/meditationEntries.html';
                 } else {
                     const errorText = await response.text();
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Your existing code for backButton, homeButton, etc.
+ 
     const backButton = document.querySelector('.backButton');
     if (backButton) {
         backButton.addEventListener('click', function () {

@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 #optionText {
     position: absolute;
     top: 59%;
@@ -29,7 +34,6 @@
 }
 
 
-/* Common styles for buttons */
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -195,24 +199,48 @@ img {
     .glowing-sphere.sphere2 {
         width: 5%;
         height: 2%;
-        margin-top: 1vh;
-        margin-left: -8vh;
+        margin-top: -3vh;
+        margin-left: -12vh;
     }
 
     .glowing-sphere.sphere3 {
         width: 5%;
         height: 2%;
-        margin-top: 13vh;
-        margin-left: -8vh;
+        margin-top: 10vh;
+        margin-left: -12vh;
     }
 
     .overlay-text {
         font-size: 12px;
-        margin-top: 12vh;
-        margin-left: 1vh;
+        margin-top: 2vh;
+        margin-left: -3vh;
     }
 }
 
+@media only screen and (max-width: 600px) {
+    /* Styles for the gratitude button */
+    #gratitudeButton {
+        top: 20px;
+        left: 20px;
+    }
+
+    /* Styles for the meditation button */
+    #meditationButton {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    /* Styles for the text "choose log option" */
+    #optionText {
+         top: 40%;
+        left: 53%;
+        transform: translate(-50%, -50%);
+        font-size: 35px;
+        margin-top: -136px;
+        color: black;
+        margin-left: 123px;
+    }
+}
 
 
 

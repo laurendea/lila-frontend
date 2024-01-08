@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Your existing code for backButton, homeButton, etc.
+   
     const backButton = document.querySelector('.backButton');
     if (backButton) {
         backButton.addEventListener('click', function () {

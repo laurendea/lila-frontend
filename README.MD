@@ -28,3 +28,14 @@ An app that allows a user to log their daily meditation and gratude journals. Th
 
 ## Link To the App
 
+https://lila-frontend.netlify.app
+
+## icebox
+
+- finish css
+- add photo upload feature
+- add user login
+- add music
+- add timer for meditation
+- add a sleep log
+
